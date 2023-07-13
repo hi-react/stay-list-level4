@@ -41,44 +41,61 @@ const Write = () => {
     addStayMutation.mutate(newStay);
   };
 
-  return (
-    <Form onSubmit={submitButtonHandler}>
-      <Container>
-        <Title>작성자: </Title>
-        <Input
-          value={author}
-          onChange={authorChangeHandler}
-          placeholder="이름을 입력해주세요."
-          required
-        />
-        <Title>숙소: </Title>
-        <Input
-          value={stay}
-          onChange={stayChangeHandler}
-          placeholder="숙소명을 입력해주세요."
-          required
-        />
-        <Title>위치: </Title>
-        <Input
-          value={location}
-          onChange={locationChangeHandler}
-          placeholder="숙소 위치를 입력해주세요."
-          required
-        />
-        <Title>설명: </Title>
-        <ContentInput
-          value={detail}
-          onChange={detailChangeHandler}
-          placeholder="기타 부연 설명을 입력해주세요."
-        />
-      </Container>
+  const goToList = () => {
+    navigate("/stayList");
+  };
 
-      <SubmitButton>제출</SubmitButton>
-    </Form>
+  return (
+    <>
+      <ListButton onClick={goToList}>숙소 LIST</ListButton>
+      <Form onSubmit={submitButtonHandler}>
+        <Container>
+          <Title>작성자: </Title>
+          <Input
+            name="author"
+            value={author}
+            onChange={authorChangeHandler}
+            placeholder="이름을 입력해주세요."
+            required
+          />
+          <Title>숙소: </Title>
+          <Input
+            name="stay"
+            value={stay}
+            onChange={stayChangeHandler}
+            placeholder="숙소명을 입력해주세요."
+            required
+          />
+          <Title>위치: </Title>
+          <Input
+            name="location"
+            value={location}
+            onChange={locationChangeHandler}
+            placeholder="숙소 위치를 입력해주세요."
+            required
+          />
+          <Title>설명: </Title>
+          <ContentInput
+            name="detail"
+            value={detail}
+            onChange={detailChangeHandler}
+            placeholder="기타 부연 설명을 입력해주세요."
+          />
+        </Container>
+
+        <SubmitButton>제출</SubmitButton>
+      </Form>
+    </>
   );
 };
 
 export default Write;
+
+const ListButton = styled(PurpleButton)`
+  margin: 30px;
+  margin-bottom: 0px;
+  margin-left: 80px;
+`;
 
 const Form = styled.form`
   display: flex;
@@ -89,7 +106,7 @@ const Container = styled.div`
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 4fr;
-  margin: 4vw 0px;
+  margin: 3vw 0px;
 `;
 
 const Title = styled.div`
@@ -98,7 +115,7 @@ const Title = styled.div`
 `;
 
 const SubmitButton = styled(PurpleButton)`
-  margin-bottom: 40px;
+  margin-bottom: 47px;
   margin-right: 6.5vw;
   margin-left: auto;
   padding: 5px;

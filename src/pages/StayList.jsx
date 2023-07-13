@@ -4,6 +4,7 @@ import Stay from "../components/Stay";
 import { getStayList } from "../api/stayList";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
+import { PurpleButton } from "../shared/Button";
 
 const StayList = () => {
   const navigate = useNavigate();
@@ -15,15 +16,26 @@ const StayList = () => {
     return <h1>오류가 발생하였습니다.</h1>;
   }
 
+  const goToDetail = (stayItem) => {
+    navigate(`/detail/${stayItem.id}`, { state: { stayItem } });
+  };
+
+  const goToWrite = () => {
+    navigate("/write");
+  };
+
   return (
     <StyledDiv>
-      <header>Stay List</header>
+      <WriteButton onClick={goToWrite}>숙소 기록하기</WriteButton>
       <div>
         {data.map((item) => {
-          const goToDetail = () => {
-            navigate(`/detail/${item.id}`);
-          };
-          return <Stay key={item.id} stayItem={item} onClick={goToDetail} />;
+          return (
+            <Stay
+              key={item.id}
+              stayItem={item}
+              onClick={() => goToDetail(item)}
+            />
+          );
         })}
       </div>
     </StyledDiv>
@@ -38,4 +50,8 @@ const StyledDiv = styled.div`
     padding-left: 10px;
     font-size: 28px;
   }
+`;
+
+const WriteButton = styled(PurpleButton)`
+  margin-left: 45px;
 `;

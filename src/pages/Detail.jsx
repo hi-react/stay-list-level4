@@ -1,11 +1,14 @@
 import React from "react";
 import { styled } from "styled-components";
 import { PurpleButton } from "../shared/Button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import DetailPost from "../components/DetailPost";
 
 const Detail = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const stayItem = location.state?.stayItem;
+
   return (
     <>
       <BackButton
@@ -13,10 +16,9 @@ const Detail = () => {
           navigate(-1);
         }}
       >
-        {" "}
-        뒤로가기{" "}
+        뒤로가기
       </BackButton>
-      <DetailPost />
+      {stayItem && <DetailPost {...stayItem} />}
     </>
   );
 };
@@ -24,6 +26,8 @@ const Detail = () => {
 export default Detail;
 
 const BackButton = styled(PurpleButton)`
-  margin: 5px;
+  margin: 10px;
+  margin-top: 40px;
+  margin-left: 20px;
   background-color: transparent;
 `;
