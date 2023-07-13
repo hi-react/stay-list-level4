@@ -3,15 +3,47 @@ import { styled } from "styled-components";
 import { ContentInput, Input } from "../shared/Input";
 import { PurPleButton } from "../shared/Button";
 import { useInput } from "../hooks/useInput";
+import { useMutation, useQueryClient } from "react-query";
+import { addStay } from "../api/stayList";
+import uuid from "react-uuid";
+import { useNavigate } from "react-router-dom";
 
 const Write = () => {
-  const [author, authorChangeHandler] = useInput();
-  const [stay, stayChangeHandler] = useInput();
-  const [location, locationChangeHandler] = useInput();
-  const [detail, detailChangeHandler] = useInput();
+  const [author, setAuthor, authorChangeHandler] = useInput();
+  const [stay, setStay, stayChangeHandler] = useInput();
+  const [location, setLocation, locationChangeHandler] = useInput();
+  const [detail, setDetail, detailChangeHandler] = useInput();
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation(addStay, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("stayList");
+      console.log("성공");
+    },
+  });
+
+  const navigate = useNavigate();
+
+  const submitButtonHandler = (event) => {
+    event.preventDefault();
+
+    const newStay = {
+      id: uuid(),
+      author,
+      stay,
+      location,
+      detail,
+    };
+    setAuthor("");
+    setStay("");
+    setLocation("");
+    setDetail("");
+    navigate("/stayList");
+    mutation.mutate(newStay);
+  };
 
   return (
-    <Form>
+    <Form onSubmit={submitButtonHandler}>
       <Container>
         <Title>작성자: </Title>
         <Input

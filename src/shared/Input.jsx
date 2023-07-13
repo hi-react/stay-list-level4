@@ -27,6 +27,6 @@ const Content = styled.textarea`
   padding-left: 10px;
   border: 1.5px solid;
   border-radius: 5px;
-  text-decoration: none;
+  /* text-decoration: none; */
   outline: none;
 `;

@@ -36,5 +36,5 @@ const Footer = styled.div`
   margin: 5px;
   margin-left: auto;
   font-size: 1vw;
-  color: var(--color_white);
+  color: var(--color_white1);
 `;

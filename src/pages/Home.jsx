@@ -17,7 +17,7 @@ const Home = () => {
       <Title>어디로 떠나볼까요?</Title>
       <Body>
         <Option onClick={goToWrite}>숙소 기록하기</Option>
-        <Option onClick={goToStayList}>나의 숙소 LIST</Option>
+        <Option onClick={goToStayList}>숙소 LIST</Option>
       </Body>
     </>
   );
@@ -52,7 +52,7 @@ const Option = styled.div`
   border-radius: 5px;
 
   font-size: 20px;
-  color: var(--color_white);
+  color: var(--color_white1);
 
   cursor: pointer;
 `;

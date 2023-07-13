@@ -5,5 +5,5 @@ export const useInput = () => {
   const handler = (event) => {
     setValue(event.target.value);
   };
-  return [value, handler];
+  return [value, setValue, handler];
 };
