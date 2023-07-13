@@ -1,25 +1,25 @@
 {
   "stayList": [
     {
-      "id": "6c74bbc2-159b-65ad-afa3-28cdbb6b2f7a",
+      "id": "5d88dec0-dd52-982b-b373-e91d31a8b92e",
       "author": "희연",
       "stay": "아난티",
       "location": "남해",
       "detail": ""
     },
     {
-      "id": "6b98c95b-90bc-e576-d638-3e15131cf92c",
+      "id": "c985efec-6987-ac55-86c0-64b719152e93",
       "author": "희연",
       "stay": "재재소소",
-      "location": "제주도",
+      "location": "제주도 서귀포시",
       "detail": ""
     },
     {
-      "id": "586a2920-7d6f-340d-3ab1-0566ed221e83",
+      "id": "10a4156c-db9f-77b2-5e57-eba8ba593704",
       "author": "희연",
       "stay": "산온: 잔등",
       "location": "경기도 양평",
-      "detail": "실내외 수영장, 자쿠지, 화덕"
+      "detail": ""
     }
   ]
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import { ContentInput, Input } from "../shared/Input";
-import { PurPleButton } from "../shared/Button";
+import { PurpleButton } from "../shared/Button";
 import { useInput } from "../hooks/useInput";
 import { useMutation, useQueryClient } from "react-query";
 import { addStay } from "../api/stayList";
@@ -15,10 +15,9 @@ const Write = () => {
   const [detail, setDetail, detailChangeHandler] = useInput();
 
   const queryClient = useQueryClient();
-  const mutation = useMutation(addStay, {
+  const addStayMutation = useMutation(addStay, {
     onSuccess: () => {
       queryClient.invalidateQueries("stayList");
-      console.log("성공");
     },
   });
 
@@ -39,7 +38,7 @@ const Write = () => {
     setLocation("");
     setDetail("");
     navigate("/stayList");
-    mutation.mutate(newStay);
+    addStayMutation.mutate(newStay);
   };
 
   return (
@@ -74,7 +73,7 @@ const Write = () => {
         />
       </Container>
 
-      <PurPleButton>제출</PurPleButton>
+      <SubmitButton>제출</SubmitButton>
     </Form>
   );
 };
@@ -96,4 +95,11 @@ const Container = styled.div`
 const Title = styled.div`
   margin-top: 2vw;
   font-size: 20px;
+`;
+
+const SubmitButton = styled(PurpleButton)`
+  margin-bottom: 40px;
+  margin-right: 6.5vw;
+  margin-left: auto;
+  padding: 5px;
 `;

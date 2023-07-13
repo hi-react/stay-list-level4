@@ -1,9 +1,12 @@
 import { useState } from "react";
 
-export const useInput = () => {
-  const [value, setValue] = useState("");
+export const useInput = (initialValue = "") => {
+  const [value, setValue] = useState(initialValue);
   const handler = (event) => {
     setValue(event.target.value);
   };
-  return [value, setValue, handler];
+  const reset = () => {
+    setValue(initialValue);
+  };
+  return [value, setValue, handler, reset];
 };

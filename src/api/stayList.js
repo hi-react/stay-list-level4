@@ -13,4 +13,9 @@ const addStay = async (newStay) => {
   await axios.post(`${process.env.REACT_APP_SERVER_URL}/stayList`, newStay);
 };
 
-export { getStayList, addStay };
+// 3. 삭제 (axios.delete)
+const deleteStay = async (stayId) => {
+  await axios.delete(`${process.env.REACT_APP_SERVER_URL}/stayList/${stayId}`);
+};
+
+export { getStayList, addStay, deleteStay };

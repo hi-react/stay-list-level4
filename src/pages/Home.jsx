@@ -6,10 +6,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const goToWrite = () => {
-    navigate("/write");
+    navigate("write");
   };
   const goToStayList = () => {
-    navigate("/stayList");
+    navigate("stayList");
   };
 
   return (

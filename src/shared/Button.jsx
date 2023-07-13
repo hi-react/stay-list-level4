@@ -1,17 +1,12 @@
 import { styled } from "styled-components";
 
-export const PurPleButton = ({ ...props }) => {
+export const PurpleButton = ({ ...props }) => {
   return <Button {...props}></Button>;
 };
 
 const Button = styled.button`
   width: 10vw;
   height: 35px;
-
-  margin-bottom: 40px;
-  margin-right: 6.5vw;
-  margin-left: auto;
-  padding: 5px;
 
   background-color: var(--color_purple2);
   border: none;
