@@ -36,10 +36,11 @@
       "detail": "줄 바꿈 테스트!\n잘 됩니다."
     },
     {
-      "id": "fc741de1-bc1a-6a0f-a2da-1e930d69ca97",
-      "stay": "d",
-      "location": "22afasdfa",
-      "detail": "33sfasdfas"
+      "id": "771393e1-b239-638f-1b83-e85996dc79dd",
+      "author": "gdg",
+      "stay": "서리어",
+      "location": "제주도",
+      "detail": ""
     }
   ]
 }
