@@ -18,10 +18,10 @@ const deleteStay = async (stayId) => {
   await axios.delete(`${process.env.REACT_APP_SERVER_URL}/stayList/${stayId}`);
 };
 
-// 4. 수정 (axios.put)
-const updateStay = async (stayId, updatedStay) => {
-  await axios.put(
-    `${process.env.REACT_APP_SERVER_URL}/stayList/${stayId}`,
+// 4. 수정 (axios.patch)
+const updateStay = async (updatedStay) => {
+  await axios.patch(
+    `${process.env.REACT_APP_SERVER_URL}/stayList/${updatedStay.id}`,
     updatedStay
   );
 };

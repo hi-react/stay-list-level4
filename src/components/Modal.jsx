@@ -26,21 +26,21 @@ const Modal = ({ isOpen, setIsOpen, stayItem }) => {
     },
   });
 
-  const updateStayHandler = (stayId) => {
+  const updateStayHandler = () => {
     const updateData = {
-      id: stayId,
-      author: stayItem.author,
+      id: updatedStay.id,
+      author: updatedStay.author,
       stay: updatedStay.stay,
       location: updatedStay.location,
       detail: updatedStay.detail,
     };
-    console.log(updateData);
-    UpdateStayMutation.mutate(stayId, updateData);
+    UpdateStayMutation.mutate(updateData);
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    updateStayHandler(stayItem.id);
+
+    updateStayHandler();
   };
 
   const handleInputChange = (e) => {
@@ -65,13 +65,13 @@ const Modal = ({ isOpen, setIsOpen, stayItem }) => {
           <Inner onClick={stopPropagation}>
             <p>수정창입니다.</p>
 
-            <form onSubmit={() => handleFormSubmit}>
+            <form onSubmit={handleFormSubmit}>
               <Div>
                 <Item>
                   <label>숙소:</label>
                   <StInput
                     name="stay"
-                    value={updatedStay.stay}
+                    value={updatedStay.stay || ""}
                     onChange={handleInputChange}
                   />
                 </Item>
@@ -79,14 +79,24 @@ const Modal = ({ isOpen, setIsOpen, stayItem }) => {
                   <label>위치:</label>
                   <StInput
                     name="location"
-                    value={updatedStay.location}
+                    value={updatedStay.location || ""}
+                    onChange={handleInputChange}
+                  />
+                </Item>
+                <Item>
+                  <label>설명:</label>
+                  <StInput
+                    name="detail"
+                    value={updatedStay.detail || ""}
                     onChange={handleInputChange}
                   />
                 </Item>
               </Div>
               <ButtonSet>
-                <Button>수정</Button>
-                <Button onClick={closeHandler}>닫기</Button>
+                <Button type="submit">수정</Button>
+                <Button type="button" onClick={closeHandler}>
+                  닫기
+                </Button>
               </ButtonSet>
             </form>
           </Inner>
