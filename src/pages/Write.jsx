@@ -92,9 +92,12 @@ const Write = () => {
 export default Write;
 
 const ListButton = styled(PurpleButton)`
+  width: 15vw;
   margin: 30px;
   margin-bottom: 0px;
-  margin-left: 80px;
+  margin-left: 75px;
+
+  font-size: 1vw;
 `;
 
 const Form = styled.form`

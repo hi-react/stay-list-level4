@@ -53,5 +53,7 @@ const StyledDiv = styled.div`
 `;
 
 const WriteButton = styled(PurpleButton)`
+  width: 15vw;
   margin-left: 45px;
+  font-size: 1vw;
 `;
